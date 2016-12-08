@@ -2,8 +2,8 @@ const Influx = require('influx')
 
 module.exports = function init () {
   const influx = new Influx.InfluxDB({
-    host: process.env('INFLUX_HOST') || 'localhost',
-    database: process.env('INFLUX_DATABASE') || 'dummy-data',
+    host: process.env.INFLUX_HOST || 'localhost',
+    database: process.env.INFLUX_DATABASE || 'dummy-data',
     schema: [
       {
         measurement: 'usage',
