@@ -1,0 +1,23 @@
+version: '2'
+services:
+  influxdb:
+    image: influxdb
+    ports:
+      - 8083:8083
+      - 8086:8086
+    volumes:
+      - ./data:/var/lib/influxdb
+  chronograf:
+    image: chronograf
+    ports:
+      - 8888:8888
+      - 10000:10000
+  iot-ddg:
+    image: node:6
+    working_dir: /app
+    volumes:
+      - .:/app
+    command: bash -c "npm update npm -g && npm install && tail -f /dev/null"
+    environment:
+      - INFLUX_HOST=influxdb
+      - INFLUX_DATABASE=iot-dummy
