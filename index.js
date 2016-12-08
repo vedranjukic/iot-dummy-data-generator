@@ -1,7 +1,7 @@
 const DeviceManager = require('./src/fake-device-manager')
 const FakeDeviceConnection = require('./src/fake-device-connection')()
 
-const updateStats = require('./src/stats')()
+const updateStats = require('./src/stats')
 
 console.log('Generating data - send interval: 15s')
 
@@ -15,5 +15,7 @@ let deviceManager = DeviceManager({
     temperature: {type: 'integer', min: -20, max: 60}
   }
 })
+
+updateStats(deviceManager)
 
 deviceManager.start()

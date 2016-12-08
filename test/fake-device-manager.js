@@ -20,11 +20,6 @@ const connection = {
   }
 }
 
-let _stats = false
-const onUpdateStats = function (stats) {
-  _stats = stats
-}
-
 describe('FakeDeviceManager', function () {
   let fakeDeviceManager = null
 
@@ -46,7 +41,6 @@ describe('FakeDeviceManager', function () {
     fakeDeviceManager = FakeDeviceManager({
       connection,
       measurements,
-      onUpdateStats: onUpdateStats,
       sendInterval: 500
     })
     expect(fakeDeviceManager).to.have.property('start')
@@ -62,12 +56,13 @@ describe('FakeDeviceManager', function () {
 
   it('should collect device stats', function (done) {
     setTimeout(() => {
-      if (!_stats) return done('No data')
+      let stats = fakeDeviceManager.getStats()
+      if (!stats) return done('No data')
       if (
-        _stats.devices &&
-        _stats.measurements &&
-        _stats.writes &&
-        _stats.size
+        stats.devices &&
+        stats.measurements &&
+        stats.writes &&
+        stats.size
       ) {
         done()
       } else {
