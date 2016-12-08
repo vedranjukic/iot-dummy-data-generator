@@ -7,6 +7,7 @@ console.log('Generating data - send interval: 15s')
 
 let deviceManager = DeviceManager({
   deviceCount: 100,
+  metricsInterval: 30,
   connection: FakeDeviceConnection,
   onUpdateStats: updateStats,
   measurements: {

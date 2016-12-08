@@ -7,7 +7,8 @@ module.exports = function FakeDeviceManager ({
   spawnInterval = 200,
   metricsInterval = 200,
   sendInterval = 15000,
-  measurements
+  measurements,
+  onUpdateStats
 }) {
   if (!connection) {
     throw new Error('Missing connection param')
@@ -33,6 +34,13 @@ module.exports = function FakeDeviceManager ({
   }
 
   /**
+   * Return stats data
+   */
+  const getStats = () => {
+    return stats
+  }
+
+  /**
    * Update stats on device data send event
    */
   const onDeviceSendData = (err, data) => {
@@ -46,13 +54,6 @@ module.exports = function FakeDeviceManager ({
       stats.size += sizeof(chunk)
     })
     stats.writes++
-  }
-
-  /**
-   * Return stats data
-   */
-  const getStats = () => {
-    return stats
   }
 
   /**
