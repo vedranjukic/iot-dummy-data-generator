@@ -8,7 +8,7 @@ console.log('Generating data - send interval: 15s')
 let deviceManager = DeviceManager({
   deviceCount: 100,
   connection: FakeDeviceConnection,
-  onStats: updateStats,
+  onUpdateStats: updateStats,
   measurements: {
     usage: {type: 'integer', min: 0, max: 100},
     voltage: {type: 'integer', min: 0, max: 15},

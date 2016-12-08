@@ -21,7 +21,7 @@ const connection = {
 }
 
 let _stats = false
-const onStats = function (stats) {
+const onUpdateStats = function (stats) {
   _stats = stats
 }
 
@@ -46,7 +46,7 @@ describe('FakeDeviceManager', function () {
     fakeDeviceManager = FakeDeviceManager({
       connection,
       measurements,
-      onStats: onStats,
+      onUpdateStats: onUpdateStats,
       sendInterval: 500
     })
     expect(fakeDeviceManager).to.have.property('start')
