@@ -35,6 +35,8 @@ module.exports = function init () {
     ]
   })
   influx.createDatabase(process.env.INFLUX_DATABASE)
+  .catch(console.error)
+
   return influx
 }
 
