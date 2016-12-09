@@ -16,7 +16,7 @@ services:
     image: node:6
     working_dir: /app
     volumes:
-      - .:/app
+      - '.:/app'
     command: bash -c "npm update npm -g && npm install && tail -f /dev/null"
     environment:
       - INFLUX_HOST=influxdb

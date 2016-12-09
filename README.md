@@ -23,7 +23,7 @@ This will create InfluxDB, Chronograf and IoT Dummy Data Generator containers
 
 Enter IoT Dummy Data Generator container
 
-```docker exec -ti influxdbtest_iot-ddg_1 bash
+```docker exec -ti iotdummydatagenerator_chronograf_1 bash
 ```
 
 And start the generator
@@ -62,7 +62,8 @@ and use Chronograf UI to visualize generated data.
 
 ### FakeDeviceManager
 
-Use FakeDeviceManager to spawn multiple FakeDevice instances with the same behavior. Multiple manager instances can be used in parallel to create multiple FakeDevice groups with different behavior.
+Use FakeDeviceManager to spawn multiple FakeDevice instances with the same behavior. 
+Multiple manager instances can be used in parallel to create multiple FakeDevice groups with different behavior.
 
 When invoking FakeDeviceManager instance, you can set the following options:
 
