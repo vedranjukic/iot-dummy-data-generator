@@ -1,13 +1,13 @@
 {
-  "name": "influx-test",
+  "name": "iot-dummy-data-generator",
   "version": "0.1.0",
-  "description": "",
+  "description": "Spawn dummy IoT devices and generate custom data that can be send to some data store.",
   "main": "index.js",
   "scripts": {
     "test": "mocha --watch --reporter spec"
   },
-  "author": "",
-  "license": "ISC",
+  "author": "Vedran Jukic",
+  "license": "MIT",
   "dependencies": {
     "influx": "^5.0.3",
     "object-sizeof": "^1.1.1",
